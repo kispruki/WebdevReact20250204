@@ -1,12 +1,13 @@
 export interface ICity{
-    lang:number;
+    lat:number;
     long:number;
     name:string;
 }
 
 export interface ICityWeather{
-    temperature:number;
-    relative_humidity:number;
+    data: ICity;
+    temp:number;
+    rel_humidity:number;
     is_day: 0 | 1,
     rain: number;
     windspeed:number;

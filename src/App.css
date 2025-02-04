@@ -8,8 +8,8 @@
 }
 
 .cityBtn{
-  @apply bg-blue-400 rounded m-2 text-center
-  hover:bg-blue-500 hover:text-white hover:cursor-pointer
+  @apply bg-blue-400 rounded m-2 text-center 
+  hover:bg-blue-500 hover:text-white hover:cursor-pointer hover:border
 }
 
 }
