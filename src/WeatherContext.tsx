@@ -6,14 +6,14 @@ import citiesData from "./cities.json"
 interface IWeatherContext{
     cities: ICity[];
     shownCities: ICityWeather[];
-    addCity: (name: string) => void;
+    addCity: (city: ICity) => void;
     removeCity: (name:string) => void;
 
 }
 const defaultWeatherContext:IWeatherContext = {
     cities: [],
     shownCities: [],
-    addCity: (name:string) =>{},
+    addCity: (city:ICity) =>{},
     removeCity: (name:string) =>{},
 }
 
@@ -39,6 +39,7 @@ export const WeatherContext = createContext<IWeatherContext>(defaultWeatherConte
 export const WeatherContextProvider = ({children, }:{children: ReactNode}) =>{
 
     const [cities, setCities] = useState<ICity[]>([]);
+    const [shownCities, setShownCities] = useState<ICityWeather[]>([]);
 
     useEffect(() => {
         setCities(citiesData as ICity[]);
@@ -47,19 +48,22 @@ export const WeatherContextProvider = ({children, }:{children: ReactNode}) =>{
 
     useEffect(() => {
         console.log(cities);
-        if (cities.length > 0){
-            getWeatherObject(cities[0]).then(data => console.log(data));
-        }
-    }, [cities]);
-    
-    const [shownCities, setShownCities] = useState<ICityWeather[]>([]);
-
-    const addCity = (name:string) => {
         
+    }, [cities]);
+    useEffect(() => {
+        console.log(shownCities);
+    }, [shownCities]);
+    
+
+    const addCity = async (city: ICity) => {
+        let newCity = await getWeatherObject(city);
+        console.log(newCity);
+        setShownCities([...shownCities, newCity]);
     }
 
     const removeCity = (name:string) => {
-        
+        let newaArr = shownCities.filter((c)=> c.data.name != name)
+        setShownCities(newaArr)
     }
 
     return (<WeatherContext.Provider value={{cities, shownCities, addCity, removeCity}}>
