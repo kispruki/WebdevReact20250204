@@ -1,0 +1,12 @@
+[
+    { "lang": 48.8566, "long": 2.3522, "name": "Paris" },
+    { "lang": 40.7128, "long": -74.0060, "name": "New York" },
+    { "lang": 35.6895, "long": 139.6917, "name": "Tokyo" },
+    { "lang": 51.5074, "long": -0.1278, "name": "London" },
+    { "lang": 34.0522, "long": -118.2437, "name": "Los Angeles" },
+    { "lang": 55.7558, "long": 37.6173, "name": "Moscow" },
+    { "lang": -33.8688, "long": 151.2093, "name": "Sydney" },
+    { "lang": 19.4326, "long": -99.1332, "name": "Mexico City" },
+    { "lang": 37.7749, "long": -122.4194, "name": "San Francisco" },
+    { "lang": 28.6139, "long": 77.2090, "name": "New Delhi" }
+]
